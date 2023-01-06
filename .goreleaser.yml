@@ -10,10 +10,13 @@ builds:
     binary: kail
     goos:
       - linux
+      - darwin
     goarch:
       - amd64
+      - arm64
     goamd64:
       - v2
+      - v3
     env:
       - CGO_ENABLED=0
     ldflags:
