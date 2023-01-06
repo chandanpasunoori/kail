@@ -20,6 +20,21 @@ builds:
       - v3
     env:
       - CGO_ENABLED=0
+    ldflags:
+      - -s -w 
+      - -X github.com/nutanix/kubectl-karbon/version.Version={{.Version}} 
+      - -X github.com/nutanix/kubectl-karbon/version.Commit={{.ShortCommit}} 
+      - -X github.com/nutanix/kubectl-karbon/version.Date={{.Date}} 
+      - -X github.com/nutanix/kubectl-karbon/version.BuiltBy=GoReleaser
+      - -X github.com/nutanix/kubectl-karbon/version.OsName={{.Os}}
+      - -X github.com/nutanix/kubectl-karbon/version.PlatformName={{.Arch}}
+
+archives:
+  - builds:
+      - kail
+    name_template: "{{ .ProjectName }}_{{ .Tag }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+    wrap_in_directory: false
+    format: tar.gz
 
 brews:
   - tap:
