@@ -9,15 +9,11 @@ builds:
   - main: cmd/kail/main.go
     binary: kail
     goos:
-      - darwin
       - linux
     goarch:
       - amd64
-      - arm64
     goamd64:
-      - v1
       - v2
-      - v3
     env:
       - CGO_ENABLED=0
     ldflags:
@@ -29,24 +25,17 @@ builds:
       - -X github.com/nutanix/kubectl-karbon/version.OsName={{.Os}}
       - -X github.com/nutanix/kubectl-karbon/version.PlatformName={{.Arch}}
 
-archives:
-  - builds:
-      - kail
-    name_template: "{{ .ProjectName }}_{{ .Tag }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
-    wrap_in_directory: false
-    format: tar.gz
-
-brews:
-  - tap:
-      owner: chandanpasunoori
-      name: homebrew-repo
-      branch: main
-    commit_author:
-      name: chandanpasunoori
-      email: chandanpasunoori@gmail.com
-    goamd64: v2
-    homepage: "https://github.com/chandanpasunoori/kail"
-    description: "kubernetes tail - pod log viewer"
+# brews:
+#   - tap:
+#       owner: chandanpasunoori
+#       name: homebrew-repo
+#       branch: main
+#     commit_author:
+#       name: chandanpasunoori
+#       email: chandanpasunoori@gmail.com
+#     goamd64: v2
+#     homepage: "https://github.com/chandanpasunoori/kail"
+#     description: "kubernetes tail - pod log viewer"
 
 krews:
   - name: tail
