@@ -37,45 +37,45 @@ builds:
 #     homepage: "https://github.com/chandanpasunoori/kail"
 #     description: "kubernetes tail - pod log viewer"
 
-krews:
-  - name: tail
-    goamd64: v2
-    index:
-      owner: chandanpasunoori
-      name: krew-index
-      branch: master
-    commit_author:
-      name: chandanpasunoori
-      email: chandanpasunoori@gmail.com
-    homepage: "https://github.com/chandanpasunoori/kail"
-    description: |-
-      Kail https://github.com/chandanpasunoori/kail - "Just show me the logs"
+# krews:
+#   - name: tail
+#     goamd64: v2
+#     index:
+#       owner: chandanpasunoori
+#       name: krew-index
+#       branch: master
+#     commit_author:
+#       name: chandanpasunoori
+#       email: chandanpasunoori@gmail.com
+#     homepage: "https://github.com/chandanpasunoori/kail"
+#     description: |-
+#       Kail https://github.com/chandanpasunoori/kail - "Just show me the logs"
 
-      Stream logs from all matched containers of all matched pods.  Match pods by service,
-      replicaset, deployment, and others.  Adjusts to a changing cluster - pods are
-      added and removed from logging as they fall in or out of the selection.
+#       Stream logs from all matched containers of all matched pods.  Match pods by service,
+#       replicaset, deployment, and others.  Adjusts to a changing cluster - pods are
+#       added and removed from logging as they fall in or out of the selection.
 
-      Documentation:
-        See https://github.com/chandanpasunoori/kail or
-        $ kubectl tail --help
+#       Documentation:
+#         See https://github.com/chandanpasunoori/kail or
+#         $ kubectl tail --help
 
-      Usage:
+#       Usage:
         
-        # match all pods
-        $ kubectl tail
+#         # match all pods
+#         $ kubectl tail
         
-        # match pods in the 'frontend' namespace
-        $ kubectl tail --ns staging
+#         # match pods in the 'frontend' namespace
+#         $ kubectl tail --ns staging
         
-        # match pods belonging to a replicaset named 'workers' in any namespace.
-        $ kubectl tail --rs workers
+#         # match pods belonging to a replicaset named 'workers' in any namespace.
+#         $ kubectl tail --rs workers
         
-        # match pods belonging to the replicaset named 'workers' only in the 'staging' namespace
-        $ kubectl tail --rs staging/workers
+#         # match pods belonging to the replicaset named 'workers' only in the 'staging' namespace
+#         $ kubectl tail --rs staging/workers
         
-        # match pods belonging to both the service "frontend" and the deployment "webapp"
-        $ kubectl tail --svc frontend --deploy webapp
-    short_description: "Stream logs from multiple pods and containers using simple, dynamic source selection."
+#         # match pods belonging to both the service "frontend" and the deployment "webapp"
+#         $ kubectl tail --svc frontend --deploy webapp
+#     short_description: "Stream logs from multiple pods and containers using simple, dynamic source selection."
 
 checksum:
   name_template: "checksums.txt"
